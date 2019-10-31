@@ -1,0 +1,54 @@
+
+form {
+    display: flex;
+    justify-content: center;
+}
+.radio-toolbar input[type="radio"]:checked + label {
+    background-color:#bfb;
+    border-color: #4c4;
+}
+input[type='text'] {
+display: block;
+
+}
+.radio-input input[type="radio"]:checked {
+    border: lime solid 2px;
+}
+
+
+input[type='radio'] {
+    display: none;
+    }
+.pokemon-section {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+
+.pokemon-section li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    height: 250px;
+    width: 250px;
+    min-width: 250px;
+    border-radius: 10%;
+    border: 3px solid skyblue;
+    background-color: rgb(235, 211, 152);
+    margin-top: 0px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    padding: 5px;
+    box-shadow:5px 3px gray;
+}
+.image-container img {
+    height: 40%;
+    object-fit: contain;
+}
+.header-logo {
+    width: 300px;
+}
