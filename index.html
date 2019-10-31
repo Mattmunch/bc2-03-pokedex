@@ -21,22 +21,20 @@
     <section>
         <nav class="filter-controls">
            <form>
-               <section class="radio-toolbar">
+               <section class="filter-toolbar">
 
                    <label class="text-input">
                        <input placeholder="Search Here" type="text">
                    </label>
-                   <label class="radio-input">
-                        <input name="selection" type="radio" checked>Name
-                    </label>
-                   <label class="radio-input">
-                       <input name="selection" type="radio">Type
-                   </label>
-                   <label class="radio-input">
-                       <input name="selection" type="radio">Attack
-                   </label>
-                   <label class="radio-input">
-                       <input name="selection" type="radio">Defense
+                   <label class="dropdown-options-label">
+                       Filter:
+                       <select name="filters" class="dropdown-options">
+                           <option value="name">Name</option>
+                           <option value="type">Type</option>
+                           <option value="attack">Attack</option>
+                           <option value="defense">Defense</option>
+                           <option value="weakness">Weakness</option>
+                       </select>
                    </label>
                    <label class="search-button"><button>Search</button></label>
                </section>
@@ -45,7 +43,7 @@
         </nav>
     </section>
     <section class='pokemon-section'>
-            <ul class="images">
+            <ul class="pokemon">
                     <li>
                         <div class="info-container">
                             <h2>Squirtle</h2>

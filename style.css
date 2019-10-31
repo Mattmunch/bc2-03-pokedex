@@ -1,25 +1,21 @@
 
+body {
+    background-color: lightgoldenrodyellow;
+}
+
 form {
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
 }
-.radio-toolbar input[type="radio"]:checked + label {
-    background-color:#bfb;
-    border-color: #4c4;
-}
-input[type='text'] {
-display: block;
-
-}
-.radio-input input[type="radio"]:checked {
-    border: lime solid 2px;
+input, select, button {
+    background-color:rgb(235, 211, 152) ;
+    border: 1px solid skyblue;
+    display: inline-block;
 }
 
 
-input[type='radio'] {
-    display: none;
-    }
-.pokemon-section {
+.pokemon {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
@@ -45,10 +41,11 @@ input[type='radio'] {
     padding: 5px;
     box-shadow:5px 3px gray;
 }
-.image-container img {
-    height: 40%;
-    object-fit: contain;
+
+.image-container img{
+    width: 65%;
 }
 .header-logo {
     width: 300px;
+
 }
