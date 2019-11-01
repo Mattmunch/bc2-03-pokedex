@@ -4,9 +4,6 @@ class FilterPokemon extends Component {
     renderHTML() {
         return `
         <section class="filter-section">
-        <nav class="filter-controls">
-            <a href="./home/index.html">Home Page</a>
-            <a href="./index.html">Pokédex</a>
            <form>
                <section class="filter-toolbar">
 
@@ -26,8 +23,6 @@ class FilterPokemon extends Component {
                    <label class="search-button"><button>Search</button></label>
                </section>
            </form>
-            
-        </nav>
     </section>
      `;
     }

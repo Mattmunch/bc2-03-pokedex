@@ -17,9 +17,16 @@ class PokemonItem extends Component {
             <img src=${pokemon.url_image}
                 alt=${pokemon.pokemon}
         </div>
-        <p class="attack">Attack:${pokemon.attack}</p>
-        <p class="attack">Defense:${pokemon.defense}</p><p class="attack">Speed:${pokemon.speed}</p>
-        <p class="type-two">Type 2:${capitalize(pokemon.type_2)}</p>
+        <div class="stats">
+        <div class="attack-defense">
+        <p>Attack:${pokemon.attack}</p>
+        <p>Defense:${pokemon.defense}</p>
+        </div>
+        <div class="speed-type"
+        <p>Speed:${pokemon.speed}</p>
+        <p>Type 2:${capitalize(pokemon.type_2)}</p>
+        </div>
+        </div>
     </li>
         `;
     }

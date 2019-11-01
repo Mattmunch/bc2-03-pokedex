@@ -13,9 +13,12 @@ input, select, button {
     border: 1px solid skyblue;
     display: inline-block;
 }
+.stats {
+    display: flex;
+    justify-content: space-evenly;
+}
 
-
-.pokemon {
+.pokemon-list {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
