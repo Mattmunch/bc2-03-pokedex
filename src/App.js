@@ -4,41 +4,52 @@ import allPokemon from '../services/pokemon-api.js';
 import FilterPokemon from './FilterPokemon';
 import PokemonList from './PokemonList';
 
+
+const allPokemon = [
+    {
+        pokemon: 'charizard',
+        type_1: '2011',
+        attack: '100',
+        defense: '100',
+        url_image: 'https://m.media-amazon.com/images/M/MV5BMjIyZGU4YzUtNDkzYi00ZDRhLTljYzctYTMxMDQ4M2E0Y2YxXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX300.jpg'
+    }
+];
+
 class App extends Component {
     onRender(element) {
         const header = new Header();
         const headerDOM = header.renderDOM();
         element.prepend(headerDOM);
-        const props = {
-            allPokemon
-        };
-        const imageList = new PokemonList(props);
-        const imageListDOM = imageList.renderDOM();
+       
+        const pokemonList = new PokemonList(props);
+        const pokemonListDOM = pokemonList.renderDOM();
+        
+        const pokemonSection = element.querySelector('.pokemon-section');
+        pokemonSection.appendChild(pokemonListDOM);
+        
+        const filterSection = element.querySelector('.filter-section');
+        filterSection.appendChild(filterPokemonDOM);
 
-        const listSection = element.querySelector('.pokemon-section');
-        listSection.appendChild(imageListDOM);
-
+        const filterPokemon = new FilterPokemon(filterPokemonProps);
+        const filterPokemonDOM = filterPokemon.renderDOM();
+        
         const filterPokemonProps = {
             allPokemon,
-            onFilter: (imageType) => {
+            onFilter: (pokemonType) => {
                 let filteredPokemon;
-                if (!imageType) {
+                if (!pokemonType) {
                     filteredPokemon = allPokemon;
                 }
                 else {
-                    filteredPokemon = allPokemon.filter(image => {
-                        return image.keyword === imageType;
+                    filteredPokemon = allPokemon.filter(pokemon => {
+                        return pokemon.keyword === pokemonType;
                     });
                 }
                 const updateProps = { allPokemon: filteredPokemon };
-                imageList.update(updateProps);
+                pokemonList.update(updateProps);
             }
         };
-        const filterPokemon = new FilterPokemon(filterPokemonProps);
-        const filterPokemonDOM = filterPokemon.renderDOM();
 
-        const optionSection = element.querySelector('.filter-section');
-        optionSection.appendChild(filterPokemonDOM);
     }
     renderHTML(){
         return `
