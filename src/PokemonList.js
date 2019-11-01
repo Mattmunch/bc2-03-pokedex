@@ -1,4 +1,4 @@
-import Component from '../Component.js';
+import Component from './Component.js';
 import PokemonItem from './PokemonItem.js';
 
 class PokemonList extends Component {
@@ -9,11 +9,11 @@ class PokemonList extends Component {
     }
     onRender(element) {
         const allPokemon = this.props.allPokemon;
-
         allPokemon.forEach(pokemon => {
             const props = { pokemon };
             const pokemonItem = new PokemonItem(props);
             const pokemonItemDOM = pokemonItem.renderDOM();
+            
             element.appendChild(pokemonItemDOM);
         });
     }

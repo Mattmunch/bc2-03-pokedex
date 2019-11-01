@@ -2,7 +2,7 @@ import Component from '../src/Component.js';
 
 class FilterPokemon extends Component {
     renderHTML() {
-        `
+        return `
         <section class="filter-section">
         <nav class="filter-controls">
             <a href="./home/index.html">Home Page</a>

@@ -1,37 +1,32 @@
-import Component from '../Component.js';
+import Component from './Component.js';
 import Header from './Header.js';
-import allPokemon from '../services/pokemon-api.js';
-import FilterPokemon from './FilterPokemon';
-import PokemonList from './PokemonList';
+import FilterPokemon from './FilterPokemon.js';
+import PokemonList from './PokemonList.js';
+import Paging from './Paging.js';
+import getPokemon from '../services/pokemon-api.js';
 
 
-const allPokemon = [
-    {
-        pokemon: 'charizard',
-        type_1: '2011',
-        attack: '100',
-        defense: '100',
-        url_image: 'https://m.media-amazon.com/images/M/MV5BMjIyZGU4YzUtNDkzYi00ZDRhLTljYzctYTMxMDQ4M2E0Y2YxXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_SX300.jpg'
-    }
-];
 
 class App extends Component {
-    onRender(element) {
+    async onRender(element) {
         const header = new Header();
         const headerDOM = header.renderDOM();
         element.prepend(headerDOM);
        
-        const pokemonList = new PokemonList(props);
+        const pokemonList = new PokemonList({ allPokemon: [] });
         const pokemonListDOM = pokemonList.renderDOM();
         
         const pokemonSection = element.querySelector('.pokemon-section');
         pokemonSection.appendChild(pokemonListDOM);
+
+        const response = await getPokemon();
+        const allPokemon = response.results;
+        pokemonList.update({ allPokemon });
         
         const filterSection = element.querySelector('.filter-section');
-        filterSection.appendChild(filterPokemonDOM);
-
-        const filterPokemon = new FilterPokemon(filterPokemonProps);
-        const filterPokemonDOM = filterPokemon.renderDOM();
+        const pagingSection = document.querySelector('.paging-section');
+        const paging = new Paging();
+        pagingSection.appendChild(paging.renderDOM());
         
         const filterPokemonProps = {
             allPokemon,
@@ -49,7 +44,10 @@ class App extends Component {
                 pokemonList.update(updateProps);
             }
         };
-
+        const filterPokemon = new FilterPokemon(filterPokemonProps);
+        const filterPokemonDOM = filterPokemon.renderDOM();
+        filterSection.appendChild(filterPokemonDOM);
+        
     }
     renderHTML(){
         return `
@@ -59,6 +57,9 @@ class App extends Component {
             </section>
             <section class='pokemon-section'>
       
+            </section>
+            <section class="paging-section">
+
             </section>
         </main>
         `;

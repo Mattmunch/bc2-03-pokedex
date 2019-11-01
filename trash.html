@@ -1,0 +1,66 @@
+<body>
+        <main>
+    <section class="header">
+        <header>
+            <img class="header-logo" src="./assets/pokedex-logo.png" alt="pokédex logo">
+    
+        </header>
+    </section>
+    
+        <section class="filter-section">
+            <nav class="filter-controls">
+                <a href="./home/index.html">Home Page</a>
+                <a href="./index.html">Pokédex</a>
+               <form>
+                   <section class="filter-toolbar">
+    
+                       <label class="text-input">
+                           <input placeholder="Search Here" type="text">
+                       </label>
+                       <label class="dropdown-options-label">
+                           Filter:
+                           <select name="filters" class="dropdown-options">
+                               <option value="name">Name</option>
+                               <option value="type">Type</option>
+                               <option value="attack">Attack</option>
+                               <option value="defense">Defense</option>
+                               <option value="weakness">Weakness</option>
+                           </select>
+                       </label>
+                       <label class="search-button"><button>Search</button></label>
+                   </section>
+               </form>
+                
+            </nav>
+        </section>
+        <section class='pokemon-section'>
+                <ul class="pokemon">
+                        <li>
+                            <div class="info-container">
+                                <h2>Squirtle</h2>
+                                <p class="image-type">Water Type</p>
+                            </div>
+    
+                            <div class="image-container">
+                                <img src="http://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png"
+                                    alt="Squirtle photo">
+                            </div>
+                            <p class="attack">Attack:</p>
+                            <p class="attack">Defense:</p><p class="attack">Weakness:</p>
+                        </li>
+                    </ul>
+        </section>
+        <section class="paging-section">
+                <p class="paging">
+                        <button class="prev" disabled>◀</button>
+                        <span>Page 1 of 5</span>
+                        <button class="next">▶</button>
+                    </p>
+        </section>
+    </main>
+    
+    
+    
+        <script type="module" src="./home/index.js"></script>
+    </body>
+    
