@@ -25,34 +25,19 @@ class App extends Component {
         
         const filterSection = element.querySelector('.filter-section');
         const pagingSection = document.querySelector('.paging-section');
-        const paging = new Paging({ totalResults: 0 });
+        const paging = new Paging({ count: 0 });
         pagingSection.appendChild(paging.renderDOM());
         
-        const filterPokemonProps = {
-            allPokemon,
-            onFilter: (pokemonType) => {
-                let filteredPokemon;
-                if (!pokemonType) {
-                    filteredPokemon = allPokemon;
-                }
-                else {
-                    filteredPokemon = allPokemon.filter(pokemon => {
-                        return pokemon.keyword === pokemonType;
-                    });
-                }
-                const updateProps = { allPokemon: filteredPokemon };
-                pokemonList.update(updateProps);
-            }
-        };
-        const filterPokemon = new FilterPokemon(filterPokemonProps);
+        
+        const filterPokemon = new FilterPokemon();
         const filterPokemonDOM = filterPokemon.renderDOM();
         filterSection.appendChild(filterPokemonDOM);
         async function loadPokemon() {
             const response = await getPokemon();
-            const allPokemon = response.search;
-            const totalResults = response.totalResults;
+            const allPokemon = response.results;
+            const count = response.count;
             pokemonList.update({ allPokemon });
-            paging.update({ totalResults });
+            paging.update({ count });
         }
         loadPokemon();
 

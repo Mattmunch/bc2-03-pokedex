@@ -47,7 +47,7 @@ class Paging extends Component {
 
     renderHTML() {
         const perPage = 20;
-        const totalResults = this.props.totalResults;
+        const count = this.props.count;
         const queryString = window.location.hash.slice(1);
         const searchParams = new URLSearchParams(queryString);
 
@@ -57,15 +57,16 @@ class Paging extends Component {
             page = 1;
         }
         else {
+            
             page = parsedPage;
         }
-        if (!totalResults) {
+        if (!count) {
             return `
             <p class="paging">No results, try another search.</p>
             `;
         }
 
-        const lastPage = Math.ceil(totalResults / perPage); 
+        const lastPage = Math.ceil(count / perPage); 
         return `
         <section class="paging-section">
             <p class="paging">

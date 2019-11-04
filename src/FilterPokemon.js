@@ -3,15 +3,15 @@ import Component from '../src/Component.js';
 class FilterPokemon extends Component {
     onRender(form) {
         const filterInput = form.querySelector('input[name=search]');
-        const typeDropdown = form.querySelector('input[name=type]');
+        const typeDropdown = form.querySelector('input[name=sort]');
 
         function updateControls() {
             const queryString = window.location.hash.slice(1);
             const searchParams = new URLSearchParams(queryString);
             filterInput.value = searchParams.get('s') || '';
-            const type = searchParams.get('type');
-            if (type) {
-                typeDropdown.value === type;
+            const sort = searchParams.get('sort');
+            if (sort) {
+                typeDropdown.value === sort;
             }
         }
 
@@ -25,11 +25,13 @@ class FilterPokemon extends Component {
         form.addEventListener('submit', event => {
             event.preventDefault();
             const formData = new FormData(form);
-            const queryString = window.location.hash.slice(1);
+            const queryString = '';
             const searchParams = new URLSearchParams(queryString);
 
-            searchParams.set('sort', formData.get('filters'));
-            searchParams.set('pokemon', formData.get('search'));
+            // searchParams.set('${option.value}', formData.get('sort'));
+            // searchParams.set('pokemon', formData.get('search'));
+            // searchParams.set('page', 1);
+            searchParams.set(formData.get('sort'), formData.get('search'));
             searchParams.set('page', 1);
             window.location.hash = searchParams.toString();
 
@@ -50,12 +52,12 @@ class FilterPokemon extends Component {
                    </label>
                    <label class="dropdown-options-label">
                        Filter:
-                       <select name="filters" class="dropdown-options">
-                           <option value="name">Name</option>
+                       <select name="sort" class="dropdown-options">
+                           <option value="pokemon">Name</option>
                            <option value="type">Type</option>
                            <option value="attack">Attack</option>
                            <option value="defense">Defense</option>
-                           <option value="weakness">Weakness</option>
+                           <option value="speed">Speed</option>
                        </select>
                    </label>
                    <label class="search-button"><button>Search</button></label>
