@@ -25,7 +25,7 @@ class App extends Component {
         
         const filterSection = element.querySelector('.filter-section');
         const pagingSection = document.querySelector('.paging-section');
-        const paging = new Paging();
+        const paging = new Paging({ totalResults: 0 });
         pagingSection.appendChild(paging.renderDOM());
         
         const filterPokemonProps = {
@@ -47,6 +47,18 @@ class App extends Component {
         const filterPokemon = new FilterPokemon(filterPokemonProps);
         const filterPokemonDOM = filterPokemon.renderDOM();
         filterSection.appendChild(filterPokemonDOM);
+        async function loadPokemon() {
+            const response = await getPokemon();
+            const allPokemon = response.search;
+            const totalResults = response.totalResults;
+            pokemonList.update({ allPokemon });
+            paging.update({ totalResults });
+        }
+        loadPokemon();
+
+        window.addEventListener('hashchange', () => {
+            loadPokemon();
+        });
         
     }
     renderHTML(){
