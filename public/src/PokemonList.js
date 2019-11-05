@@ -1,5 +1,5 @@
-import Component from './Component.js.js';
-import PokemonItem from './PokemonItem.js.js';
+import Component from './Component.js';
+import PokemonItem from './PokemonItem.js';
 
 class PokemonList extends Component {
     renderHTML() {

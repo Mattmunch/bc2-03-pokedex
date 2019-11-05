@@ -1,9 +1,9 @@
-import Component from './Component.js.js';
-import Header from './Header.js.js';
-import FilterPokemon from './FilterPokemon.js.js';
-import PokemonList from './PokemonList.js.js';
-import Paging from './Paging.js.js';
-import getPokemon from '../services/pokemon-api.js.js';
+import Component from './Component.js';
+import Header from './Header.js';
+import FilterPokemon from './FilterPokemon.js';
+import PokemonList from './PokemonList.js';
+import Paging from './Paging.js';
+import getPokemon from '../services/pokemon-api.js';
 
 
 

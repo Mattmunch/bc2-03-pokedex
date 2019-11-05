@@ -1,4 +1,4 @@
-import Component from './Component.js.js';
+import Component from './Component.js';
 
 class FilterPokemon extends Component {
     onRender(form) {
