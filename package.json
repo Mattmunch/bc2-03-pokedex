@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Mattmunch/bc2-03-pokedex#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1"
   }
 }
