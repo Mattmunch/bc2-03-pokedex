@@ -1,0 +1,103 @@
+
+body {
+    background-color: lightgoldenrodyellow;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+input, select, button {
+    background-color:rgb(235, 211, 152) ;
+    border: 1px solid skyblue;
+    display: inline-block;
+}
+.stats {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.pokemon-list {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+nav.filter-controls {
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+a {
+
+    background-color: skyblue;
+    box-shadow: 0 5px 0 rgb(72, 180, 222);
+    color: white;
+    padding: .25em;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+a:hover {
+    background-color: rgb(18, 149, 200);
+    cursor: pointer;
+  }
+  
+a:active {
+    box-shadow: none;
+    top: 5px;
+  }
+
+.pokemon-section li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    height: 250px;
+    width: 250px;
+    min-width: 250px;
+    border-radius: 10%;
+    border: 3px solid skyblue;
+    background-color: rgb(235, 211, 152);
+    margin-top: 0px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    padding: 5px;
+    box-shadow:5px 3px gray;
+}
+
+.image-container img{
+    width: 65%;
+}
+.header-logo {
+    width: 300px;
+
+}
+.paging-section {
+    display: flex;
+    justify-content: center;
+}
+h2 {
+    font-size: 2rem;
+}
+@media only screen and (min-width: 830px) {
+    button {
+        width:100px;
+        height: 25px;
+    }
+    select.dropdown-option {
+        width: 100px;
+        height: 25px;
+
+    }
+    input, select, button {
+        font-size: 13pt;
+    }
+    label.dropdown-options-label {
+        font-size: 16pt;
+    }
+  }
+
